@@ -1,0 +1,20 @@
+
+
+Node JS is asynchronous and non blocking platform
+
+    Node Runtime - Which executes the node project
+	
+	Npm - which manages your node module/package
+	
+What kind of applications can you develop using Node platform?
+
+  Almost any kind of application
+  
+  console applications
+  network oriented
+  Web applications
+  Web Service
+  Desktop Applications
+  
+  -----------------------------------------------------------------
+

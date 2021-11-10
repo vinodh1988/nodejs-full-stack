@@ -1,0 +1,29 @@
+
+
+npm install --save  <library-name>
+until npm 5
+[Production Dependency]  - Local scopoe
+
+   npm install --save bootstrap
+     this would download latest available bootstrap
+	 
+   npm install --save bootstrap@3
+   
+   In the latest npm --save option not needed
+   
+   npm install bootstrap
+   
+ if you need the dependency only for development but not production
+ 
+ 
+     npm install --save-dev jasmine
+	 
+	 
+to download any utility, we need to download it globally
+
+   npm install -g utility-name
+   
+   
+   
+	 
+	 

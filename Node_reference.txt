@@ -1,0 +1,31 @@
+
+Libraries? --[  L O C A L  ]  - project scope
+
+    [Development + Production]
+	
+	[Development ] ?????
+   
+   express
+   
+   mysql
+   
+   sequelize
+
+   mongoose
+-------------------------------
+   Unit testing/ Integration Testing??
+   
+   Linting
+
+    Typescript
+-------------------------------
+
+Utilities?  -- Global path
+
+    json-server 
+	
+	typescript - tsc
+	
+	babel - [transpiler]
+	
+	grunt
