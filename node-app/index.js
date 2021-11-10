@@ -1,19 +1,10 @@
-const fs = require("fs")
-const second = require("./second")
+const express = require("express")
+var app = express()
 
-fs.readFile("package1.json","utf-8",function(err,data){
-   if(err)
-      console.log("unable to read file")
-   else
-      console.log(data)
+app.get("/",function(request,response){
+    response.send("Node APP is working and cool")
 })
 
-second.activity().sleep()
-second.activity().eat()
-console.log(second.greet())
-console.log(second.store)
-
-console.log("After attempting to read file")
-
-console.log("Still running")
-
+app.listen("8000",function(){
+    console.log("Server running on port 8000")
+})
