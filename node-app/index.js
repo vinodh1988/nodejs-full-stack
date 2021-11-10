@@ -1,6 +1,7 @@
 const express = require("express")
 var app = express()
 const path=require('path')
+require('./app2')
 
 //to configure static resource
 //static resources are resources that need to be sent as it is 
@@ -13,7 +14,7 @@ app.get("/",function(request,response){
 })
 
 app.get("/home",function(request,response){
-    response.sendFile(path.join(__dirname,'public/pages/index.html'))
+    response.sendFile(path.join(__dirname,'public/pages/home.html'))
 })
 
 app.listen("8000",function(){
