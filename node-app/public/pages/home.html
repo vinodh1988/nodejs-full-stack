@@ -3,8 +3,33 @@
         <title>Home Page</title>
         <script src="client.js"></script>
         <link href="style.css" rel="stylesheet" >
+        <script src="jquery.min.js"></script>
+        <script src="bootstrap.min.js"></script>
+        <link href="bootstrap.min.css" rel="stylesheet">
     </head>
      <body>
          <h1>Home Page</h1>
+         <form action="home" method="post">
+         <table>
+               <tr>
+                   <th>Sno</th>
+                   <td><input type="text" name="sno"></td>
+               </tr>
+               <tr>
+                <th>Name</th>
+                <td><input type="text" name="name"></td>
+            </tr>
+            <tr>
+                <th>City</th>
+                <td><input type="text" name="city"></td>
+            </tr>
+            <tr>
+                
+                <td style="text-align:center" colspan="2"><button type="submit" class="btn btn-dark">
+                    Store
+                </button></td>
+            </tr>
+         </table>
+        </form>
     </body>
 </html>
