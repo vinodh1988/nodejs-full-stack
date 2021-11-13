@@ -8,6 +8,11 @@ require('./app2')
 //Parsing the input data
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
+//configuring the template engine
+
+app.set('views', path.join(__dirname, 'public/views'));//setting the path of template files
+app.set('view engine', 'pug'); //configuring view Engine
+
 //to configure static resource
 //static resources are resources that need to be sent as it is 
 app.use(express.static(path.join(__dirname, 'public/scripts')))
@@ -23,6 +28,16 @@ app.get("/",function(request,response){
 
 app.get("/home",function(request,response){
     response.sendFile(path.join(__dirname,'public/pages/home.html'))
+})
+
+app.get("/people",function(request,response){
+    ops.getPeople(function(err,data){
+        if(err)
+              response.send("No Data found")
+        else
+              response.render("people",{people:data})
+    })
+ 
 })
 
 app.post("/home",function(request,response){
