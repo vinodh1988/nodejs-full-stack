@@ -1,8 +1,9 @@
+const { DH_CHECK_P_NOT_SAFE_PRIME } = require("constants")
 const express = require("express")
 //const parser=require("body-parser")
 var app = express()
 const path=require('path')
-require('./db/dbconfig')
+const ops=require('./db/dbops')
 require('./app2')
 //Parsing the input data
 app.use(express.urlencoded({extended:true}))
@@ -25,8 +26,14 @@ app.get("/home",function(request,response){
 })
 
 app.post("/home",function(request,response){
-    console.log(request.body)
-    response.sendFile(path.join(__dirname,'public/pages/home.html'))
+    const {sno,name,city}=request.body  //{sno:1,name:"raj",city:"chennai"}
+    ops.addPerson(sno,name,city,function(err,data){
+        if(err)
+          response.sendStatus(500)
+          
+        response.sendFile(path.join(__dirname,'public/pages/home.html'))
+    })
+    
 })
 
 app.listen("8000",function(){
