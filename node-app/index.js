@@ -1,10 +1,12 @@
 const express = require("express")
-const parser=require("body-parser")
+//const parser=require("body-parser")
 var app = express()
 const path=require('path')
+require('./db/dbconfig')
 require('./app2')
-
-app.use(parser.urlencoded())
+//Parsing the input data
+app.use(express.urlencoded({extended:true}))
+app.use(express.json())
 //to configure static resource
 //static resources are resources that need to be sent as it is 
 app.use(express.static(path.join(__dirname, 'public/scripts')))
