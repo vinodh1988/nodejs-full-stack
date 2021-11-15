@@ -7,10 +7,19 @@ const ops=require('./db/dbops')
 const api=require("./route/api")
 require('./app2')
 //Parsing the input data
+
+app.use(function(req,res,next){
+    
+     console.log('global logic')
+    
+     next()
+})
+
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 app.use("/api",api)
 //configuring the template engine
+
 
 app.set('views', path.join(__dirname, 'public/views'));//setting the path of template files
 app.set('view engine', 'pug'); //configuring view Engine
@@ -44,6 +53,7 @@ app.get("/people",function(request,response){
 
 
 
+
 app.post("/home",function(request,response){
     const {sno,name,city}=request.body  //{sno:1,name:"raj",city:"chennai"}
     ops.addPerson(sno,name,city,function(err,data){
@@ -54,6 +64,7 @@ app.post("/home",function(request,response){
     })
     
 })
+
 
 app.listen("8000",function(){
     console.log("Server running on port 8000")

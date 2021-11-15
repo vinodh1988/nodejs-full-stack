@@ -9,6 +9,9 @@ const dbops= {
         },
         getOne:function(sno,callback){
         db.query("select * from person where sno=?",[sno],callback)
+        },
+        update:function(sno,name,city,callback){
+            db.query("update person set name=?,city=? where sno=?",[name,city,sno],callback)
         }
 }
 
