@@ -6,6 +6,9 @@ const dbops= {
         },
         getPeople: function(callback){
             db.query("select * from person",callback)
+        },
+        getOne:function(sno,callback){
+        db.query("select * from person where sno=?",[sno],callback)
         }
 }
 
