@@ -4,10 +4,12 @@ const express = require("express")
 var app = express()
 const path=require('path')
 const ops=require('./db/dbops')
+const api=require("./route/api")
 require('./app2')
 //Parsing the input data
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
+app.use("/api",api)
 //configuring the template engine
 
 app.set('views', path.join(__dirname, 'public/views'));//setting the path of template files
@@ -39,6 +41,8 @@ app.get("/people",function(request,response){
     })
  
 })
+
+
 
 app.post("/home",function(request,response){
     const {sno,name,city}=request.body  //{sno:1,name:"raj",city:"chennai"}
