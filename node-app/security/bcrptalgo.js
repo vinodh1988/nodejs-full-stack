@@ -19,4 +19,15 @@ return new Promise(function(resolve,reject){
 })
 }
 
-module.exports = {encrypt: getEncryptedPassword}
+function comparePassword(password,originalpassword) {
+    return new Promise(function(resolve,reject){
+          bcrypt.compare(password,originalpassword,function(err,isMatch){
+              if(err)
+                 reject(err);
+              else
+                 resolve(isMatch)
+          })
+  });
+}
+
+module.exports = {encrypt: getEncryptedPassword,compare:comparePassword}
