@@ -6,8 +6,11 @@ const path=require('path')
 const ops=require('./db/dbops')
 const api=require("./route/api")
 const users=require("./route/userroute")
+var passport = require('passport');
 require('./app2')
 //Parsing the input data
+
+app.use(passport.initialize());
 
 app.use(function(req,res,next){
     

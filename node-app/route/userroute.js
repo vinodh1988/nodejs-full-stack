@@ -5,6 +5,8 @@ var ops=require("../db/dbops")
 var route=express.Router()
 const security=require("../security/bcrptalgo")
 const jwt=require("jsonwebtoken");
+const passport=require("passport")
+require('../security/security')(passport)
 
 route.post("/signup",async function(request,response){
       const {username,password}=request.body
