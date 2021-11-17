@@ -1,4 +1,4 @@
-const { response, request } = require("express");
+
 var express = require("express")
 var ops=require("../db/dbops")
 var route=express.Router();
@@ -50,6 +50,7 @@ route.put("/people",function(request,response){
                      response.status(500).send("Server Error")
                  else
                      response.status(200).json({sno:sno,name:name,city:city})
+                
                 
             })
             }

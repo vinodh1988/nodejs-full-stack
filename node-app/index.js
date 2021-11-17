@@ -5,6 +5,7 @@ var app = express()
 const path=require('path')
 const ops=require('./db/dbops')
 const api=require("./route/api")
+const users=require("./route/userroute")
 require('./app2')
 //Parsing the input data
 
@@ -18,6 +19,7 @@ app.use(function(req,res,next){
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 app.use("/api",api)
+app.use("/users",users)
 //configuring the template engine
 
 
@@ -33,7 +35,8 @@ app.use(express.static(path.join(__dirname, 'node_modules/bootstrap/dist/js')))
 app.use(express.static(path.join(__dirname, 'node_modules/jquery/dist')))
 //app.use(express.static(path.join(__dirname, 'public/pages')))
 
-app.get("/",function(request,response){
+app.get("/",async function(request,response){
+    
     response.send("Node APP is working and cool")
 })
 
