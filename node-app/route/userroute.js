@@ -4,6 +4,7 @@ var express = require("express")
 var ops=require("../db/dbops")
 var route=express.Router()
 const security=require("../security/bcrptalgo")
+const jwt=require("jsonwebtoken");
 
 route.post("/signup",async function(request,response){
       const {username,password}=request.body
@@ -27,8 +28,11 @@ route.post("/signin",async function(request,response){
          try{
             
             let originalencrypted=await ops.getPassword(username)
-            if(await security.compare(password,originalencrypted))
-               response.status(200).send("Login successful")
+            let user={username:username,password:originalencrypted}
+            if(await security.compare(password,originalencrypted)){
+            let token = jwt.sign(user,"express-app-api")
+            response.json({success:true,access_token: token})
+            }
             else
                response.status(401).send("Not Authorized")
       }
