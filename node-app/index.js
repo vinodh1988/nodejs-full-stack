@@ -1,7 +1,10 @@
 const { DH_CHECK_P_NOT_SAFE_PRIME } = require("constants")
 const express = require("express")
+const cors=require("cors")
+
 //const parser=require("body-parser")
 var app = express()
+app.use(cors())
 const path=require('path')
 const ops=require('./db/dbops')
 const api=require("./route/api")
